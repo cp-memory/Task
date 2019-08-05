@@ -1,0 +1,16 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        m = len(s)
+        if m%2 !=0:
+            return False
+        if m==0:
+            return True   
+        
+        count = 0 
+        while(count<m/2):
+            s = s.replace("{}","").replace("[]","").replace("()","")
+            count+=1
+        if len(s)>0:
+            return False
+        else:
+            return True
