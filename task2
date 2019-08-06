@@ -1,0 +1,12 @@
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        length = len(nums)
+        L = []
+        for N in range(length):
+            for n in range(N+1,length):
+                if nums[N]<nums[n]:
+                    nums[N] = nums[N]
+                    nums[n] = nums[n]
+            L.append(nums[N])
+            K = k - 1
+        return nums[K]
