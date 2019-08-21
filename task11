@@ -1,0 +1,14 @@
+import sys
+class Solution:
+    def maxPathSum(self, root: TreeNode) -> int:
+        self.ret = -sys.maxsize
+        self.get_max(root)
+        return self.ret
+    
+    def get_max(self, node):
+        if not node:
+            return 0
+        left = max(0, self.get_max(node.left))
+        right = max(0, self.get_max(node.right))
+        self.ret = max(self.ret, left + right + node.val)
+        return max(left, right) + node.val
